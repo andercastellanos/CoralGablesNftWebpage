@@ -153,11 +153,10 @@
             const collectionElement = document.createElement('div');
             collectionElement.innerHTML = `
                 <h2>${collection.name}</h2>
-                <img src="${collection.image_url}" alt="${collection.name}" width="200">
+               <a href="collection.html">
+                    <img src="${collection.image_url}" alt="${collection.name}" width="200">
+                </a>
                 <p>${collection.description}</p>
-                <p>Owner: ${collection.owner}</p>
-                <p>Contract Address: ${collection.contracts[0].address}</p>
-                <p>Chain: ${collection.contracts[0].chain}</p>
                 <p><a href="${collection.opensea_url}" target="_blank">View on OpenSea</a></p>
             `;
             container.appendChild(collectionElement);
@@ -168,3 +167,4 @@
 </body>
 
 </html>
+
