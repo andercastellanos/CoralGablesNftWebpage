@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=320, initial-scale=1">
 <title>City of Coral Gables Trees NFTs</title>
 <style>
 body {
@@ -62,7 +62,7 @@ margin-bottom: 20px;
 <div class="nft-container" id="nft-container"></div>
 
 <script>
-const apiUrl = 'https://api.opensea.io/api/v2/collection/city-of-coral-gables-smart-contract-test/nfts?limit=20';
+const apiUrl = 'https://api.opensea.io/api/v2/collection/city-of-coral-gables-smart-contract-test-CrAKZ717H/nfts?limit=20';
 const apiKey = 'e5f2096c0db349c7bb75161029b21c6e';
 
 async function fetchNFTs() {
@@ -109,11 +109,11 @@ nftItem.innerHTML = `
 <img src="${nft.image_url}" alt="${nft.name}">
 <h3>${nft.name}</h3>
 <p><strong>Identifier:</strong> ${newIdentifier}</p>
-<p><strong>Collection:</strong> ${nft.collection}</p>
-<p><strong>Contract:</strong> ${nft.contract}</p>
-<p><strong>Token Standard:</strong> ${nft.token_standard}</p>
+<p><strong>Collection:</strong> ${nft.collection ? nft.collection.name : 'N/A'}</p>
+<p><strong>Contract:</strong> ${nft.asset_contract ? nft.asset_contract.address : 'N/A'}</p>
+<p><strong>Token Standard:</strong> ${nft.asset_contract ? nft.asset_contract.schema_name : 'N/A'}</p>
 <button onclick="reserveNFT('${nft.token_id}')">Reserve NFT</button>
-<button onclick="openOpenSea('${nft.opensea_url}')">View on OpenSea</button>
+<button onclick="openOpenSea('${nft.permalink}')">View on OpenSea</button>
 <p><strong>Updated At:</strong> ${new Date(nft.updated_at).toLocaleString()}</p>
 `;
 
